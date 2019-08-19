@@ -1,0 +1,8 @@
+C:\Users\HugoVianaSantos\Desktop\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.deps.json
+C:\Users\HugoVianaSantos\Desktop\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.runtimeconfig.json
+C:\Users\HugoVianaSantos\Desktop\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.runtimeconfig.dev.json
+C:\Users\HugoVianaSantos\Desktop\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.dll
+C:\Users\HugoVianaSantos\Desktop\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.csprojAssemblyReference.cache
+C:\Users\HugoVianaSantos\Desktop\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.csproj.CoreCompileInputs.cache
+C:\Users\HugoVianaSantos\Desktop\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.AssemblyInfoInputs.cache
+C:\Users\HugoVianaSantos\Desktop\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.AssemblyInfo.cs
