@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Get_BuildStatus
@@ -14,18 +15,28 @@ namespace Get_BuildStatus
         private const string version = "4.1";
         private readonly HttpClient _client;
         private bool _disposed;
+        private const string token = "7zz32gwaryit32vwz45nb4xbojsgsk6zweshdycs6mecuaxnh7ea";
+        private const string baseUri = "https://dev.azure.com/";
 
         public BuildService()
         {
             _client = new HttpClient()
             {
-                BaseAddress = new Uri($"https://dev.azure.com/{account}/{teamProjectName}")
+                BaseAddress = new Uri(baseUri)
             };
+
+            _client.DefaultRequestHeaders.Accept.Add(
+                        new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
+                Convert.ToBase64String(
+                    System.Text.ASCIIEncoding.ASCII.GetBytes(
+                        string.Format("{0}:{1}", "", token))));
         }
 
         public async ValueTask<IList<Build>> GetFailedBuilds()
         {
-            var url = $"/_apis/build/definitions?api-version={version}";
+            var url = $"{account}/{teamProjectName}/_apis/build/definitions?api-version={version}";
 
             var response = await _client.GetAsync(url);
             response.EnsureSuccessStatusCode();
@@ -43,24 +54,34 @@ namespace Get_BuildStatus
         /// </summary>
         /// <param name="builds"></param>
         /// <returns>d</returns>
-        public async ValueTask<IList<Build>> GetFailedBuildsDetails(IList<Value> builds)
+        public async ValueTask<IList<Build>> GetFailedOrNotRunnedBuildsDetails(IList<Value> builds)
         {
-            List<Build> failedBuilds = new List<Build>();
+            // https://dev.azure.com/mongeral/projetos/_apis/build/latest/9?api-version=5.0-preview.1
+            List<Build> failedOrNotRunnedBuilds = new List<Build>();
+            
 
             foreach (var build in builds)
             {
-                var url = $"/_apis/build/latest/{build.id}?api-version=5.0-preview.1";
+                var url = $"{account}/{teamProjectName}/_apis/build/latest/{build.id}?api-version=5.0-preview.1";
                 var response = await _client.GetAsync(url);
-                response.EnsureSuccessStatusCode();
 
-                var buildDetail = JsonConvert.DeserializeObject<Build>(await response.Content.ReadAsStringAsync());
-                if (!buildDetail.result.Equals("succeeded", StringComparison.OrdinalIgnoreCase))
+                Build buildDetail;
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    failedBuilds.Add(buildDetail);
+                    // TODO Add not runned builds 
+                    buildDetail = new Build(); 
+                }
+                else
+                {
+                    buildDetail = JsonConvert.DeserializeObject<Build>(await response.Content.ReadAsStringAsync());
+                    if (!buildDetail.result.Equals("succeeded", StringComparison.OrdinalIgnoreCase))
+                    {
+                        failedOrNotRunnedBuilds.Add(buildDetail);
+                    }
                 }
             }
 
-            return failedBuilds;
+            return failedOrNotRunnedBuilds;
         }
 
         public void Dispose()
