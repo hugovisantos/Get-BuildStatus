@@ -3488,23 +3488,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vitor\\.nuget\\packages\\": {},
+    "C:\\Users\\Hugo\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Workspace\\projetoHugo\\Get-BuildStatus\\Get-BuildStatus\\Get-BuildStatus.csproj",
+      "projectUniqueName": "E:\\WorkSpaceESX\\Get-BuildStatus\\Get-BuildStatus\\Get-BuildStatus.csproj",
       "projectName": "Get-BuildStatus",
-      "projectPath": "D:\\Workspace\\projetoHugo\\Get-BuildStatus\\Get-BuildStatus\\Get-BuildStatus.csproj",
-      "packagesPath": "C:\\Users\\Vitor\\.nuget\\packages\\",
-      "outputPath": "D:\\Workspace\\projetoHugo\\Get-BuildStatus\\Get-BuildStatus\\obj\\",
+      "projectPath": "E:\\WorkSpaceESX\\Get-BuildStatus\\Get-BuildStatus\\Get-BuildStatus.csproj",
+      "packagesPath": "C:\\Users\\Hugo\\.nuget\\packages\\",
+      "outputPath": "E:\\WorkSpaceESX\\Get-BuildStatus\\Get-BuildStatus\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hugo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3512,8 +3512,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://pkgs.dev.azure.com/esx/_packaging/Biblioteca/nuget/v3/index.json": {}
+        "http://sfmtzapphmg08:8083/nexus/service/local/nuget/nuget-mongeral/": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
@@ -3530,7 +3530,6 @@
       "netcoreapp2.1": {
         "dependencies": {
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

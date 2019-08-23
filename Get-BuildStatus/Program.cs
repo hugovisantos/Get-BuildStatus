@@ -8,8 +8,8 @@ namespace Get_BuildStatus
         {
             BuildService buildService = new BuildService();
 
-            var buildsFailed = buildService.GetFailedBuilds().AsTask().Result[0];
-            Console.WriteLine(buildsFailed.result);
+            var buildsFailed = buildService.GetFailedBuilds();
+            Console.WriteLine(buildsFailed.Result);
             Console.ReadLine();
            
         }

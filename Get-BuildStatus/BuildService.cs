@@ -36,6 +36,7 @@ namespace Get_BuildStatus
 
         public async ValueTask<IList<Build>> GetFailedBuilds()
         {
+            //https://dev.azure.com/mongeral/Projetos/_apis/build/definitions?api-version=4.1
             var url = $"{account}/{teamProjectName}/_apis/build/definitions?api-version={version}";
 
             var response = await _client.GetAsync(url);
@@ -46,7 +47,7 @@ namespace Get_BuildStatus
                 .Where(build => !build.name.Contains("gated") && !build.name.StartsWith("DB."))
                 .ToList();
 
-            return await GetFailedBuildsDetails(filterdBuilds);
+            return await GetFailedOrNotRunnedBuildsDetails(filterdBuilds);
         }
 
         /// <summary>
@@ -58,29 +59,30 @@ namespace Get_BuildStatus
         {
             // https://dev.azure.com/mongeral/projetos/_apis/build/latest/9?api-version=5.0-preview.1
             List<Build> failedOrNotRunnedBuilds = new List<Build>();
-            
+            List<Build> buildNotFound = new List<Build>();
 
             foreach (var build in builds)
             {
                 var url = $"{account}/{teamProjectName}/_apis/build/latest/{build.id}?api-version=5.0-preview.1";
                 var response = await _client.GetAsync(url);
-
                 Build buildDetail;
+                buildDetail = JsonConvert.DeserializeObject<Build>(await response.Content.ReadAsStringAsync());
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
+                    failedOrNotRunnedBuilds.Add(buildDetail);
                     // TODO Add not runned builds 
-                    buildDetail = new Build(); 
+                    buildDetail = new Build();
                 }
                 else
                 {
                     buildDetail = JsonConvert.DeserializeObject<Build>(await response.Content.ReadAsStringAsync());
-                    if (!buildDetail.result.Equals("succeeded", StringComparison.OrdinalIgnoreCase))
+                    if (!buildDetail.result.Equals("succeeded", StringComparison.OrdinalIgnoreCase) || buildDetail.id.Equals("1"))
                     {
                         failedOrNotRunnedBuilds.Add(buildDetail);
                     }
                 }
             }
-
+            //return buildNotFound;
             return failedOrNotRunnedBuilds;
         }
 
@@ -162,6 +164,12 @@ public class Build
     public Definition definition { get; set; }
     public int buildNumberRevision { get; set; }
 
+    public object innerException { get; set; }
+    public string message { get; set; }
+    public string typeName { get; set; }
+    public string typeKey { get; set; }
+    public int errorCode { get; set; }
+    public int eventId { get; set; }
 }
 
 public class Definition

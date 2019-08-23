@@ -17,3 +17,14 @@ D:\Workspace\projetoHugo\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1
 D:\Workspace\projetoHugo\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.AssemblyInfo.cs
 D:\Workspace\projetoHugo\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.dll
 D:\Workspace\projetoHugo\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.pdb
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.deps.json
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.runtimeconfig.json
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.runtimeconfig.dev.json
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.dll
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\bin\Debug\netcoreapp2.1\Get-BuildStatus.pdb
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.csprojAssemblyReference.cache
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.csproj.CoreCompileInputs.cache
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.AssemblyInfoInputs.cache
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.AssemblyInfo.cs
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.dll
+E:\WorkSpaceESX\Get-BuildStatus\Get-BuildStatus\obj\Debug\netcoreapp2.1\Get-BuildStatus.pdb
