@@ -10,6 +10,11 @@ namespace Get_BuildStatus
             BuildService buildService = new BuildService();
 
             var buildsFailed = buildService.GetFailedBuilds().AsTask().Result;
+            foreach (var item in buildsFailed)
+            {
+                Console.WriteLine($"{item.DefinitionName}{item.BuildNumber}{item.FinishTime}{item.Result}");
+            }
+            Console.ReadKey();
         }
     }
 }
